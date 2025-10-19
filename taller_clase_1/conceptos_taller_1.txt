@@ -1,0 +1,51 @@
+Características de imagen
+• Propiedades de una imagen (o partes de ella ) que pueda utilizarse para su análisis
+• Determinan las etiqueta o valores a “algo” de una imagen
+• Ejemplos: bordes, esquinas y texturas, o patrones de estructuras más complejos
+
+Tipos de características
+Características Globales
+• Usan para describir una imagen en su conjunto y proporcionan un resumen
+• Pueden no ser robustas antetransformaciones
+
+Características Locales
+• Describen pequeñas regiones dentro de una imagen
+• Estas características son más resistentes a las transformaciones (oclusiones, puntos de vista)
+
+
+Flujo de trabajo (Visión clásica)
+• Flujo aplicable a diversos problemas actuales pero con métodos diversos
+• Problemas de clasificación, detección, seguimiento de objetos o segmentación (entre otros)
+
+
+Imagen->Pre-procesamiento->Extracción de características->Función principal-> Post-procesado->Información
+
+
+
+HOG (Histogram of Oriented Gradients)
+
+• Descriptor local de forma y textura
+• Histograma de los ángulos de de la gradiente en la parte localizada de una imagen
+• Uno de los descriptores más relevantes en visión clásica y moderna
+
+Pasos HOG
+1. Calcular la magnitud y orientación de las gradientes con el operador Sobel
+Gx = I * [[1, 0, −1], [2, 0, 2], [1, 0, −1]]
+Gy = I * [[−1, −2, −1],[0, 0, 0], [1, 2, 1]]
+∥G∥ = sqrt(Gx + Gy)
+θ = arctan2(Gy, Gx)
+
+2. Dividir la imagen en celdas pequeñas (8x8px)
+3. Por cada celda construir un histograma de la orientación de las gradientes:
+A. Definir el número de “bins” por
+ángulo (9 bins: 20°)
+B. Asignar: Por cada pixel la orientación
+define el bin correspondiente
+C. Acumulación: Las contribuciones ponderadas de la magnitud del gradiente de cada píxel a las casillas se acumulan para formar el histograma
+
+4. Normalización por bloques:
+• Agrupa las celdas adyacentes en bloques
+• Normalice los histogramas dentro de cada bloque para mejorar la resistencia del descriptor a los cambios de iluminación y contraste
+5. Formación de descriptores:
+Concatenar los histogramas normalizados de todos los bloques para formar el descriptor HOG final de la imagen.
+https://www.analyticsvidhya.com/blog/2019/09/feature-engineering-images-introduction-hog-feature-descriptor/
