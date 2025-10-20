@@ -1,0 +1,45 @@
+VGG16 ->Imagen de entrada: (224, 244) RGB
+MobileNet ->Convolución separable
+ResNet ->Resuelven ResNets es el “gradient- vanish”
+
+Modelos Pre-entrenados
+
+interpretabilidad
+
+Saliency Map
+Gradient-weighted Class Activation Mapping
+
+Exploración de conjuntos de datos
+
+Tienen como objetivo conocer las características del problema a trabajar
+
+Entender el conjunto de datos:
+• Tamaño y distribución de clases del conjunto de datos
+• Diversidad de las muestras
+• El dataset se alinea con los objetivos del proyecto
+Evaluar la calidad:
+• Presencia de ruido, borrosidad, datos incompletos
+• Imágenes dañadas (corruptas)
+• Verificar la consistencia de las etiquetas
+Identificar patrones y variaciones:
+• Analizar elementos en común y diferenciados de las características
+• Variabilidad de la iluminación, la perspectiva y el fondo
+Necesidades de procesamiento:
+• Determinar pasos del pre-procesamiento
+• Decidir estrategias para datos faltantes o outliers
+Guía para la selección de modelos:
+• Determinar modelos o arquitecturas apropiadas
+• Identificar retos (oclusiones, objetos pequeños)
+
+
+Ejemplo de gráficas
+
+Distribución de sub-clases
+Centros de los objetos por clase
+Histograma de color de imagen por clase
+Áreas de clases
+Mosaico
+Histograma de color de objetos
+Segmentación de objetos
+Distribución de tamaño deimágenes
+Red de etiquetas
