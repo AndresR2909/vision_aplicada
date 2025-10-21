@@ -1,0 +1,21 @@
+Vision Image Transformers (ViT)
+A la secuencia de parches se le añade un “token” adicional [CLS]
+• En este “token” se agrega información de todos los parches durante el proceso de transformación y se utilizapara la clasificación
+• Actúa como un representaciónvresumida de toda la imagen y es el la entrada a la cabeza de clasificación
+
+ Clasificación de imágenes (ViT)
+• Detección de objetos (DETR)
+• Segmentación de imágenes
+• Modelos generativos
+• Modelos Multi-modales (CLIP)
+
+Swin Transformers -> ”hierarchical feature maps” Mapas de características jerárquicos  y “shifted window attention” Ventana de atención desplazada
+
+
+CLIP Modelo multimodal que combina visión y lenguaje
+
+CLIP Usos comunes
+Puede ser usado como:
+1. Extractor de características
+2. Zero-shot con ingeniería de prompts
+3. Usar los embebidos para sistemas de image retrieval
