@@ -1,5 +1,8 @@
+# datasets e indices
+256_ObjectCategories/
+index/
+
 *.jpg
-*.png
 *.jpeg
 *.gif
 *.pkl
