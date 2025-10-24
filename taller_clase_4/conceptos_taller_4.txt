@@ -1,0 +1,149 @@
+Agenda
+• Self-Supervised Learning (SSL)
+    • Predictivos - Pretext tasks
+    • Contrastivos (SimSLR)
+    • Generativos (MAE)
+
+
+Tareas de pretexto
+Principio básicos
+Tareas artificiales diseñadas para alentar al modelo a aprender representaciones útiles de los datos.
+Por ejemplo: Predecir las partes que faltan en una imagen
+
+
+¿Por qué?
+Aprendizaje Auto-supervisado
+Abundancia de datos: Los datos no etiquetados son abundantes y más baratos de recopilar en comparación con los conjuntos de datos etiquetados
+Generalización: SSL enseña a los modelos a extraer representaciones aplicables a diversas tareas “downstream”
+Eficiencia: Reduce la necesidad de datos anotados específicos de la tarea durante el entrenamiento
+
+Las aproximaciones a SSL generalmente
+se clasifican en:
+1. Predictivos
+2. Contrastivos
+3. Generativos
+
+Métodos predictivos
+Tarea de Pretexto
+• Predicir propiedades intrínsecas o transformaciones de los datos
+• No importa la tarea como tal
+• Solo importa que facilita el aprendizaje
+
+Tareas Pretexto
+Algunos tipos de tareas pretexto:
+• Inferencia de estructura
+• Predicción de transformación
+• Reconstrucción
+• Temporales
+• Multimodales
+• Clasificación de instancias
+
+Tareas Pretexto
+Predicción de contexto
+• Uno de los primeros métodos de SSL: Se
+extrae un parche aleatorio de una imagen
+y se utiliza como posición central
+• A partir del parche central, podemos
+extraer 1 de otros 8 parches (en forma de
+cuadrícula con cierta fluctuación)
+• Dado un par de parches como entrada: la
+red se entrena para aprender la posición
+relativa del parche central con respecto a
+su vecino.
+
+Tareas Pretexto
+Predicción del contexto
+• Problema de clasificación de 8 categorías
+utilizando (log-loss)
+• Motiva al aprendizaje de la estructura
+• Tiene muchos problemas: No tiene suficiente
+variabilidad debido a que no hay negativos
+(parches de otras imágenes)
+• Espacio de salida muy limitado: solo 8
+posiciones para distinguir
+• Diferencia muy grande con el uso en
+predicción
+
+Tareas Pretexto
+Jigsaw Puzzle
+
+Estudios en psicología muestran que
+los rompecabezas pueden utilizarse
+para evaluar el procesamiento
+visoespacial en humanos
+• Propone utilizar rompecabezas para
+desarrollar una representación
+visoespacial de objetos en el contexto
+de las CNN
+
+Tareas Pretexto
+Jigsaw Puzzle
+• Definir un conjunto de permutaciones del
+rompecabezas (Ej: )
+S= {3,1,2,9,5,4,8,7,6}
+y asignar un índice a cada permutación
+• Recortar una área de la imagen de forma
+aleatoria y dividir en 3x3 con fluctuaciones
+• Elige aleatoriamente una de esas
+permutaciones, reordena los 9 parches de
+entrada según esa permutación
+• Pedir al modelo que devuelva un vector con
+el valor de probabilidad del índice
+
+Tareas Pretexto
+Rotación
+• Predicción del ángulo de rotación
+aplicado a una imagen de entrada
+• Para cada imagen de entrada se define
+un ángulo de rotación (elegido
+β
+aleatoriamente entre un conjunto de
+valores predefinidos)
+• La imagen se rota un ángulo y se
+introduce como entrada en el modelo
+2
+
+Tareas Pretexto
+Rotación
+• Implementación muy simple y efectiva
+• No es lo suficientemente genérico debido
+a la ausencia de negativos de otras
+imágenes (no hay razón para distinguir el
+gato del perro)
+• Pequeño espacio de salida - 4 casos
+(rotaciones)
+• Hay dominios más fáciles que otros:
+(calles o playas)
+
+Tareas Pretexto
+Visual-Bag-of-Words
+• Se extraen las descriptores de todo conjunto
+de datos
+• Se crea un “codebook” (vocabulario)
+agrupando los descriptores con alguna
+técnica de clustering
+• Cada imagen se representa por el conteo de
+sus descriptores a los clusters
+• Este histograma es el vector de
+características que se usa con cualquier
+técnica de ML
+
+Tareas Pretexto
+Visual-Bag-of-Words
+• Parte de una red pre-entrenada para extraer
+características y construir un “vocabulario”
+• Se calcula el BoW de una imagen de
+entrenamiento con el modelo pre-entrenado
+• La imagen original es distorsionada
+• Se entrena otro modelo para predecir las
+BoW del modelo pre-entrenado con una
+función de costo “Cross Entropy Loss”
+
+
+
+Taller
+• Implementar un modelo CNN o ViT.
+Puede ser un modelo de alguna librería
+(Keras) o una implementación “vanilla”
+de una CNN
+• Inventar una tarea de pretexto

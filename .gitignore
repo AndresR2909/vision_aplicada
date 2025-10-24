@@ -1,12 +1,14 @@
 # datasets e indices
 256_ObjectCategories/
 index/
+cifar-10-batches-py/
 
 *.jpg
 *.jpeg
 *.gif
 *.pkl
 *.bin
+*.mat
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
