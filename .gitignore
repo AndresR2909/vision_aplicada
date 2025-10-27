@@ -160,3 +160,16 @@ Thumbs.db
 *.log
 *.tmp
 *.temp
+
+# Modelos grandes
+*.pth
+*.pkl
+*.bin
+
+# PDFs grandes
+*.pdf
+
+# Datasets grandes
+imagenet-mini/
+caltech-101/
+mango_leaf_disease/
