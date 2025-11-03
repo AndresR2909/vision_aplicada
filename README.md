@@ -52,6 +52,11 @@ vision_aplicada/
 │   ├── slides-msc-detection-II_compressed.pdf
 │   ├── taller_clase_5_efficientnet.ipynb
 │   └── taller_clase_5_vanilla_cnn.ipynb
+├── taller_clase_6/                    # Segmentación de imágenes con SAM
+│   ├── 256_ObjectCategories/         # Dataset Caltech 256
+│   ├── annotations_251.airplanes-101_predictor_bbox/# Anotaciones de segmentación
+│   ├── sam_vit_h_4b8939.pth          # Modelo SAM pre-entrenado
+│   └── taller_clase_6_segmentacion_predictor.ipynb
 ├── requirements.txt                   # Dependencias del proyecto
 └── README.md                         # Este archivo
 ```
@@ -154,21 +159,38 @@ pip install -r requirements.txt
 
 ---
 
+### ✂️ Taller 6: Segmentación de Imágenes con SAM
+**Archivo:** [`taller_clase_6/taller_clase_6_segmentacion_predictor.ipynb`](taller_clase_6/taller_clase_6_segmentacion_predictor.ipynb)
+
+**Objetivo:** Implementar un sistema de segmentación de imágenes usando SAM (Segment Anything Model) para generar anotaciones de segmentación.
+
+**Características principales:**
+- Uso del modelo SAM pre-entrenado (ViT-H)
+- Segmentación de objetos usando prompts de bounding boxes
+- Generación de anotaciones de segmentación para el dataset Caltech 256
+- Trabajo con la clase "airplanes-101" como caso de estudio
+- Exportación de máscaras en formato COCO
+
+**Tecnologías:** SAM (Segment Anything Model), PyTorch, OpenCV, pycocotools
+
+---
+
 ## 🛠️ Tecnologías Utilizadas
 
 - **Machine Learning:** PyTorch, scikit-learn, AutoGluon
 - **Visión por Computadora:** OpenCV, PIL, scikit-image
-- **Modelos Pre-entrenados:** ResNet50, MobileNet, EfficientNet, CLIP, ViT
+- **Modelos Pre-entrenados:** ResNet50, MobileNet, EfficientNet, CLIP, ViT, SAM
 - **Visualización:** Matplotlib, Seaborn, Plotly
 - **Interfaz de Usuario:** Streamlit
 - **Procesamiento de Datos:** Pandas, NumPy
 - **Búsqueda Vectorial:** FAISS
+- **Segmentación:** SAM (Segment Anything Model), pycocotools
 
 ## 📊 Datasets Utilizados
 
 1. **Mango Leaf Disease** - Clasificación de enfermedades en hojas
 2. **LabelMe-12-50k** - Clasificación de imágenes generales
-3. **Caltech 256** - Recuperación de imágenes
+3. **Caltech 256** - Recuperación de imágenes y segmentación
 4. **ImageNet-mini** - Entrenamiento auto-supervisado
 5. **Caltech-101** - Detección de objetos
 
@@ -181,6 +203,7 @@ Cada taller está diseñado para desarrollar habilidades específicas en:
 - **Taller 3:** Sistemas multimodales y recuperación de información
 - **Taller 4:** Entrenamiento auto-supervisado y arquitecturas modernas
 - **Taller 5:** Detección de objetos y regresión espacial
+- **Taller 6:** Segmentación de imágenes y modelos foundation como SAM
 
 ## 📝 Notas Importantes
 
