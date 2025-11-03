@@ -9,6 +9,7 @@ cifar-10-batches-py/
 *.pkl
 *.bin
 *.mat
+*pth
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
